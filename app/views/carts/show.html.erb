@@ -1,5 +1,12 @@
 <section class="cart-show">
 
+<% if enhanced_cart.empty? %>
+<header class="page-header">
+  <h1>Oops! Please go back and add items to your cart</h1>
+</header>
+  <button class="home-button"><a class="home-link" href="/">Home</a></button>
+<% else %>
+
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
@@ -48,5 +55,5 @@
       <% end %>
     </div>
   </div>
-
 </section>
+<% end %>
