@@ -1,8 +1,32 @@
 <section class="orders-show">
 
   <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
+    <h1>Order <%= @order.id %></h1>
   </header>
+  <h2>Order Details</h2>
+
+  <p>Email: <%= @order.email %></p>
+  <p>Total Amount: <%= number_to_currency(@order.total_cents / 100.0, precision: 2) %></p>
+  
+  <div class="line-items">
+    <% @order.line_items.each do |line_item| %>
+      <div class="line-item card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <%= image_tag(line_item.product.image_url, class: "img-fluid rounded-start") if line_item.product.image_url.present? %>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title"><%= line_item.product.name %></h4>
+              <p class="card-text"><%= line_item.product.description %></p>
+              <p class="card-text">Quantity: <%= line_item.quantity %></p>
+              <p class="card-text">Item Total: <%= number_to_currency(line_item.total_price_cents / 100.0, precision: 2) %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
