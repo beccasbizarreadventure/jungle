@@ -60,11 +60,12 @@
             <li><%= link_to 'Categories', [:admin, :categories], class: "nav-link" %></li>
           </ul>
         </li>
-        <li>
         <% if current_user %>
-          Signed in as <%= current_user.email %> | <%= link_to "Logout", '/logout' %>
+          <li class="nav-item"> Signed in as <%= current_user.email %></li>
+          <li class="nav-item"> <%= link_to "Logout", '/logout', class: "nav-link" %></li>
         <% else %>
-          <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+          <li class="nav-item"><%= link_to 'Login', '/login', class: "nav-link" %></li> 
+          <li class="nav-item"><%= link_to 'Signup', '/signup', class: "nav-link" %></li>
         <% end %>
         </li>
         <li class="nav-item end-0">
