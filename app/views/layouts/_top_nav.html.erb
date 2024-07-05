@@ -61,7 +61,7 @@
           </ul>
         </li>
         <% if current_user %>
-          <li class="nav-item"> Signed in as <%= current_user.email %></li>
+          <li class="nav-item user-email"> Signed in as <%= current_user.email %></li>
           <li class="nav-item"> <%= link_to "Logout", '/logout', class: "nav-link" %></li>
         <% else %>
           <li class="nav-item"><%= link_to 'Login', '/login', class: "nav-link" %></li> 
